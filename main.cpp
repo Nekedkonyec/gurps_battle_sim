@@ -1,11 +1,9 @@
-#include <iostream>
+#include "character.h"
 
-void HelloWorld()
-{
-    std::cout << "Hello World!" << std::endl;
-}
+#include <iostream>
 
 int main(int, char**)
 {
-    HelloWorld();
+    Character sanyi;
+    std::cout << sanyi.name() << std::endl;
 }
