@@ -7,6 +7,7 @@ project(GurpsBattleSim CXX)
 
 add_executable(gurps_battle_sim
   character.cpp
+  characterattribute.cpp
   main.cpp
 )
 
