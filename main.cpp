@@ -4,6 +4,8 @@
 
 int main(int, char**)
 {
-    Character sanyi;
+    Character sanyi("Sanyi");
+    Character xalgasi("Xalgasi");
     std::cout << sanyi.name() << std::endl;
+    std::cout << xalgasi.name() << std::endl;
 }

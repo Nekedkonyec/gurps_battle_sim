@@ -1,6 +1,6 @@
 #include "character.h"
 
-Character::Character() : name_("Xalgasi")
+Character::Character(const std::string& name) : name_(name)
 {
 
 }
