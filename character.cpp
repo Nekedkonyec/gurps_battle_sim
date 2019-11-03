@@ -2,8 +2,12 @@
 
 Character::Character(const std::string& name)
     : name_(name),
-      st_(),
-      iq_()
+      attributes_({
+          {AttributeTypes::ST, CharacterAttribute()},
+          {AttributeTypes::IQ, CharacterAttribute()},
+          {AttributeTypes::DX, CharacterAttribute()},
+          {AttributeTypes::HT, CharacterAttribute()}
+      })
 {
 
 }
@@ -13,22 +17,12 @@ std::string Character::name() const
     return name_;
 }
 
-int Character::st() const
+int Character::attribute_value(AttributeTypes attribute) const
 {
-    return st_.value();
+    return attributes_.at(attribute).value();
 }
 
-void Character::set_st(int value)
+void Character::set_attribute_value(AttributeTypes attribute, int value)
 {
-    st_.set_value(value);
-}
-
-int Character::iq() const
-{
-    return iq_.value();
-}
-
-void Character::set_iq(int value)
-{
-    iq_.set_value(value);
+    attributes_.at(attribute).set_value(value);
 }

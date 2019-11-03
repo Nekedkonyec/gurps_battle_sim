@@ -1,7 +1,10 @@
 #ifndef GURPS_CHARACTER_H
 #define GURPS_CHARACTER_H
 
+#include <map>
 #include <string>
+
+#include "attributetypes.h"
 #include "characterattribute.h"
 
 class Character
@@ -10,15 +13,12 @@ public:
     Character(const std::string& name);
 
     std::string name() const;
-    int st() const;
-    void set_st(int value);
-    int iq() const;
-    void set_iq(int value);
+    int attribute_value(AttributeTypes attribute) const;
+    void set_attribute_value(AttributeTypes attribute, int value);
 
 private:
     std::string name_;
-    CharacterAttribute st_;
-    CharacterAttribute iq_;
+    std::map<AttributeTypes, CharacterAttribute> attributes_;
 };
 
 #endif
