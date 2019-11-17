@@ -1,11 +1,13 @@
 #ifndef GURPS_CHARACTER_H
 #define GURPS_CHARACTER_H
 
+#include "attributetypes.h"
+
 #include <map>
+#include <memory>
 #include <string>
 
-#include "attributetypes.h"
-#include "characterattribute.h"
+class CharacterAttribute;
 
 class Character
 {
@@ -13,12 +15,11 @@ public:
     Character(const std::string& name);
 
     std::string name() const;
-    int attribute_value(AttributeTypes attribute) const;
-    void set_attribute_value(AttributeTypes attribute, int value);
+    std::shared_ptr<CharacterAttribute> attribute(AttributeTypes attribute);
 
 private:
     std::string name_;
-    std::map<AttributeTypes, CharacterAttribute> attributes_;
+    std::map<AttributeTypes, std::shared_ptr<CharacterAttribute>> attributes_;
 };
 
 #endif

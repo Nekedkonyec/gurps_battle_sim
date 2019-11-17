@@ -1,17 +1,18 @@
 #include "characterattribute.h"
 
-CharacterAttribute::CharacterAttribute()
-    :  value_(10)
+CharacterAttribute::CharacterAttribute(int modify_cost)
+    : modifier_(0),
+      modify_cost_(modify_cost)
 {
 
 }
 
-int CharacterAttribute::value() const
+void CharacterAttribute::set_modifier(int modifier)
 {
-    return value_;
+    modifier_ = modifier;
 }
 
-void CharacterAttribute::set_value(int value)
+int CharacterAttribute::cost() const
 {
-    value_ = value;
+    return modifier_ * modify_cost_;
 }

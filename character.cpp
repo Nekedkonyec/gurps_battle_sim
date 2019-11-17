@@ -1,12 +1,13 @@
 #include "character.h"
+#include "primaryattribute.h"
 
 Character::Character(const std::string& name)
     : name_(name),
       attributes_({
-          {AttributeTypes::ST, CharacterAttribute()},
-          {AttributeTypes::IQ, CharacterAttribute()},
-          {AttributeTypes::DX, CharacterAttribute()},
-          {AttributeTypes::HT, CharacterAttribute()}
+          {AttributeTypes::ST, std::make_shared<PrimaryAttribute>(10, 10)},
+          {AttributeTypes::IQ, std::make_shared<PrimaryAttribute>(10, 20)},
+          {AttributeTypes::DX, std::make_shared<PrimaryAttribute>(10, 20)},
+          {AttributeTypes::HT, std::make_shared<PrimaryAttribute>(10, 10)}
       })
 {
 
@@ -17,12 +18,7 @@ std::string Character::name() const
     return name_;
 }
 
-int Character::attribute_value(AttributeTypes attribute) const
+std::shared_ptr<CharacterAttribute> Character::attribute(AttributeTypes attribute)
 {
-    return attributes_.at(attribute).value();
-}
-
-void Character::set_attribute_value(AttributeTypes attribute, int value)
-{
-    attributes_.at(attribute).set_value(value);
+    return attributes_.at(attribute);
 }

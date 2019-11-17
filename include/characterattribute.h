@@ -6,13 +6,15 @@
 class CharacterAttribute
 {
 public:
-    CharacterAttribute();
+    CharacterAttribute(int modify_cost);
 
-    int value() const;
-    void set_value(int value);
+    virtual int value() const = 0;
+    void set_modifier(int modifier);
+    int cost() const;
 
-private:
-    int value_;
+protected:
+    int modifier_;
+    const int modify_cost_;
 };
 
 #endif

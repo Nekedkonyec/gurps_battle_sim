@@ -9,6 +9,7 @@ add_executable(gurps_battle_sim
   character.cpp
   characterattribute.cpp
   main.cpp
+  primaryattribute.cpp
 )
 
 target_include_directories(gurps_battle_sim

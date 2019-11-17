@@ -1,4 +1,5 @@
 #include "character.h"
+#include "characterattribute.h"
 
 #include <iostream>
 
@@ -6,14 +7,14 @@ int main(int, char**)
 {
     Character sanyi("Sanyi");
 
-    sanyi.set_attribute_value(AttributeTypes::ST, 11);
-    sanyi.set_attribute_value(AttributeTypes::IQ, 12);
-    sanyi.set_attribute_value(AttributeTypes::DX, 13);
-    sanyi.set_attribute_value(AttributeTypes::HT, 14);
+    sanyi.attribute(AttributeTypes::ST)->set_modifier(1);
+    sanyi.attribute(AttributeTypes::IQ)->set_modifier(2);
+    sanyi.attribute(AttributeTypes::DX)->set_modifier(3);
+    sanyi.attribute(AttributeTypes::HT)->set_modifier(4);
 
     std::cout << "Name: " << sanyi.name() << std::endl;
-    std::cout << "ST: " << sanyi.attribute_value(AttributeTypes::ST) << std::endl;
-    std::cout << "IQ: " << sanyi.attribute_value(AttributeTypes::IQ) << std::endl;
-    std::cout << "DX: " << sanyi.attribute_value(AttributeTypes::DX) << std::endl;
-    std::cout << "HT: " << sanyi.attribute_value(AttributeTypes::HT) << std::endl;
+    std::cout << "ST: " << sanyi.attribute(AttributeTypes::ST)->value() << " [" << sanyi.attribute(AttributeTypes::ST)->cost() << "]" << std::endl;
+    std::cout << "IQ: " << sanyi.attribute(AttributeTypes::IQ)->value() << " [" << sanyi.attribute(AttributeTypes::IQ)->cost() << "]" << std::endl;
+    std::cout << "DX: " << sanyi.attribute(AttributeTypes::DX)->value() << " [" << sanyi.attribute(AttributeTypes::DX)->cost() << "]" << std::endl;
+    std::cout << "HT: " << sanyi.attribute(AttributeTypes::HT)->value() << " [" << sanyi.attribute(AttributeTypes::HT)->cost() << "]" << std::endl;
 }
