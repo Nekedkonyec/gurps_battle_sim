@@ -26,7 +26,7 @@ AttributeWill::AttributeWill(const Character::AttributeMapType& attributes)
 
 int AttributeWill::value() const
 {
-    return attributes_.at(CharacterAttribute::Types::ST)->value() + modifier_;
+    return attributes_.at(CharacterAttribute::Types::IQ)->value() + modifier_;
 }
 
 AttributePer::AttributePer(const Character::AttributeMapType& attributes)
@@ -37,7 +37,7 @@ AttributePer::AttributePer(const Character::AttributeMapType& attributes)
 
 int AttributePer::value() const
 {
-    return attributes_.at(CharacterAttribute::Types::ST)->value() + modifier_;
+    return attributes_.at(CharacterAttribute::Types::IQ)->value() + modifier_;
 }
 
 AttributeFP::AttributeFP(const Character::AttributeMapType& attributes)
@@ -48,5 +48,5 @@ AttributeFP::AttributeFP(const Character::AttributeMapType& attributes)
 
 int AttributeFP::value() const
 {
-    return attributes_.at(CharacterAttribute::Types::ST)->value() + modifier_;
+    return attributes_.at(CharacterAttribute::Types::HT)->value() + modifier_;
 }

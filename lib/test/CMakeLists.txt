@@ -1,6 +1,7 @@
 add_executable(test_gurps_core
   test_main.cpp
   test_primaryattribute.cpp
+  test_secondaryattribute.cpp
 )
 
 target_link_libraries(test_gurps_core
