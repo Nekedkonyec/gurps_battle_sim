@@ -1,5 +1,7 @@
 #include "characterattribute.h"
 
+#include "character.h"
+
 CharacterAttribute::CharacterAttribute(int modify_cost)
     : modifier_(0),
       modify_cost_(modify_cost)

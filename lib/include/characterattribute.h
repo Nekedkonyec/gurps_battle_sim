@@ -1,11 +1,17 @@
 #ifndef GURPS_CHARACTERATTRIBUTE_H
 #define GURPS_CHARACTERATTRIBUTE_H
 
-#include <string>
-
 class CharacterAttribute
 {
 public:
+    enum class Types
+    {
+        ST,
+        IQ,
+        DX,
+        HT
+    };
+
     CharacterAttribute(int modify_cost);
 
     virtual int value() const = 0;
@@ -16,5 +22,7 @@ protected:
     int modifier_;
     const int modify_cost_;
 };
+
+
 
 #endif

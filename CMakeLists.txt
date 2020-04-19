@@ -5,13 +5,20 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall -Wextra -Werror -fPIC")
 
 project(GurpsBattleSim CXX)
 
-add_executable(gurps_battle_sim
-  character.cpp
-  characterattribute.cpp
-  main.cpp
-  primaryattribute.cpp
-)
+include(ExternalProject)
+find_package(Git REQUIRED)
 
-target_include_directories(gurps_battle_sim
-  PUBLIC include
+ExternalProject_Add(
+    catch2
+    GIT_REPOSITORY      https://github.com/catchorg/Catch2
+    GIT_TAG             v2.11.3
+    PREFIX              ${CMAKE_SOURCE_DIR}/external
+    CONFIGURE_COMMAND   ""
+    BUILD_COMMAND       ""
+    INSTALL_COMMAND     ""
 )
+set(CATCH2_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/external/src/catch2/single_include)
+
+enable_testing()
+
+add_subdirectory(lib)
